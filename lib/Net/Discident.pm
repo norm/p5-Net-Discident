@@ -111,8 +111,77 @@ __END__
 
 =head1 NAME 
 
-Net::Discident - determine the fingerprint of a DVD
+Net::Discident - query discident.com for DVD details
 
 =head1 SYNOPSIS
 
-...
+    my $ident       = Net::Discident->new( $path );
+    my $fingerprint = $ident->ident();
+    my $data        = $ident->query();
+
+=head1 METHODS
+
+=over
+
+=item fingerprint( I<path> )
+
+Stores and returns the fingerprint of the DVD at I<path>. 
+
+=item ident()
+
+Returns the fingerprint of the DVD already added with C<new()> or
+C<fingerprint()>.
+
+=item query()
+=item query( I<$fingerprint> )
+=item query( I<$gtin> )
+
+The first two forms will return the data that discident.com knows about the
+given DVD fingerprint, either passed as an argument or already calculated
+from a path. This data looks like:
+
+    discs => {
+        '3DF28C7A-3EB4-41F2-7CD8-27B691EF984D' => {
+            confirmed => 'true',
+            tag       => '1A'
+        },
+    },
+    gtin  => '00794043444623',
+    title => 'Long Kiss Goodnight'
+
+The third form, using a GTIN ("Global Trade Item Number"), may contain more
+information if it is registered with discident.com. Such as:
+
+    discs          => {
+        '3DF28C7A-3EB4-41F2-7CD8-27B691EF984D' => {
+            confirmed => 'true',
+            tag       => "1A"
+        },
+    },
+    genre          => 'Action/Adventure',
+    gtin           => '00794043444623',
+    productionYear => 1996,
+    studio         => 'New Line',
+    title          => 'Long Kiss Goodnight'
+
+=item query_url()
+=item query_url( I<$identifier> )
+
+Will return the URL used to query discident.com for the given identifier
+or already calculated identifier.
+
+=back
+
+=head1 AUTHORS
+
+Mark Norman Francis <norm@cackhanded.net> and Steve Marshall.
+
+Based upon Objective C code provided by discident.com --
+L<https://github.com/discident/objectivec>.
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2011 Mark Norman Francis and Steve Marshall.
+
+This program is free software, you can redistribute it and/or modify it under
+the terms of the Artistic License version 2.0.
