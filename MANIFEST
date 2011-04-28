@@ -1,0 +1,8 @@
+bin/discident
+Changes
+lib/Net/Discident.pm
+Makefile.PL
+MANIFEST
+README
+t/00.use.t
+t/fingerprint.t

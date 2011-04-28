@@ -7,7 +7,11 @@ use File::stat;
 use HTTP::Lite;
 use JSON;
 
+use version;
+our $VERSION = qv( 1.0 );
+
 use constant BASE_URI => 'http://discident.com/v1';
+
 
 
 sub new {
