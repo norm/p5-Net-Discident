@@ -178,7 +178,8 @@ or already calculated identifier.
 
 =head1 AUTHORS
 
-Mark Norman Francis <norm@cackhanded.net> and Steve Marshall.
+Mark Norman Francis <norm@cackhanded.net> and 
+Steve Marshall <steve@nascentguruism.com>.
 
 Based upon Objective C code provided by discident.com --
 L<https://github.com/discident/objectivec>.
