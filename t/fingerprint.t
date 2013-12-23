@@ -21,11 +21,11 @@ is_deeply(
     {
         discs => {
             'D62AD3CB-2739-07E2-A378-A1ED0714AED0' => {
-                confirmed => 'false',
+                confirmed => \0,
                 tag       => '1A',
             },
         },
-        title => 'Buck Rogers S1 D1'
+        title => 'BUCK_ROGERS'
     },
 );
 
@@ -37,7 +37,7 @@ is_deeply(
     {
         discs => {
             '3DF28C7A-3EB4-41F2-7CD8-27B691EF984D' => {
-                confirmed => 'true',
+                confirmed => \1,
                 tag       => '1A'
             }
         },
@@ -53,7 +53,7 @@ is_deeply(
     {
         discs          => {
             '3DF28C7A-3EB4-41F2-7CD8-27B691EF984D' => {
-                confirmed => 'true',
+                confirmed => \1,
                 tag       => "1A"
             }
         },
@@ -63,5 +63,4 @@ is_deeply(
         studio         => 'New Line',
         title          => 'Long Kiss Goodnight'
     }
-    
 );
